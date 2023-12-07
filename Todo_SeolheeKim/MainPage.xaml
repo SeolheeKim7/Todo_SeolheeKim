@@ -1,0 +1,102 @@
+﻿<Page
+    x:Class="Todo_SeolheeKim.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Todo_SeolheeKim"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Border >
+        <Border.Background>
+            <ImageBrush ImageSource="ms-appx:///Assets/TodoBg.png" Stretch="UniformToFill"/>
+        </Border.Background>
+        <Grid x:Name="LayoutRoot" Margin="50,50,50,50">
+
+            <Grid.Background>
+                <SolidColorBrush Color="#70FFFFFF"/>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="txtTitle" HorizontalAlignment="Center"  Margin="20" TextWrapping="Wrap" Text="Todo List" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" FontSize="48" FontWeight="Bold" FocusVisualPrimaryBrush="White">
+                <TextBlock.Foreground>
+                    <SolidColorBrush Color="#767dcc"/>
+                </TextBlock.Foreground>
+            </TextBlock>
+            <TextBox x:Name="txtInput" HorizontalAlignment="Stretch" Margin="20,10,10,10" TextWrapping="Wrap" Text="" PlaceholderText="Enter things to do" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
+            <ComboBox x:Name="cboImportance" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center" PlaceholderText="Choose the level of importance" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2"/>
+            <Button x:Name="btnSubmit" Content="Enter" Margin="20,10,20,10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Click="btnSubmit_Click" Grid.Row="1" Grid.Column="5">
+                <Button.Background>
+                    <SolidColorBrush Color="#ffd4d4"/>
+                </Button.Background>
+                <Button.Foreground>
+                    <SolidColorBrush Color="White"/>
+                </Button.Foreground>
+                <Button.FontWeight>
+                    <FontWeight>Bold</FontWeight>
+                </Button.FontWeight>
+            </Button>
+            <TextBox x:Name="txtFirstToDo" HorizontalAlignment="Stretch" Margin="20,10,10,10"  PlaceholderText="First thing to do" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5"/>
+            <CheckBox x:Name="chkDone" Content="Done" Margin="10" VerticalAlignment="Center" Grid.Row="2" Grid.Column="5" Checked="chkDone_Checked"/>
+            <TextBlock x:Name="txtShowFilter" HorizontalAlignment="Left" Margin="20,10,10,10" TextWrapping="Wrap" Text="Filter : " VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
+            <ComboBox x:Name="cboImportanceFilter" Margin="80,10,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Center" PlaceholderText="Choose the level of importance" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"/>
+            <Button x:Name="btnShowLists" HorizontalAlignment="Stretch"  Margin="20,10,20,10" Content="Show Filtered List" VerticalAlignment="Center" Grid.Row="3" Grid.Column="4" Click="btnShowLists_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="#767dcc"/>
+                </Button.Background>
+                <Button.Foreground>
+                    <SolidColorBrush Color="White"/>
+                </Button.Foreground>
+                <Button.FontWeight>
+                    <FontWeight>Bold</FontWeight>
+                </Button.FontWeight>
+            </Button>
+            <Button x:Name="btnRemoveFilter" HorizontalAlignment="Stretch" Margin="20,10,20,10" Content="Show all" VerticalAlignment="Center" Grid.Row="3" Grid.Column="5" Click="btnRemoveFilter_Click" >
+                <Button.Background>
+                    <SolidColorBrush Color="#a2dae7"/>
+                </Button.Background>
+                <Button.Foreground>
+                    <SolidColorBrush Color="White"/>
+                </Button.Foreground>
+                <Button.FontWeight>
+                    <FontWeight>Bold</FontWeight>
+                </Button.FontWeight>
+            </Button>
+            <Border BorderBrush="White" BorderThickness="1" Margin="10" Grid.Row="4" Grid.Column="0">
+                <TextBlock x:Name="txtCount" HorizontalAlignment="Left" Margin="20,10,10,10" TextWrapping="Wrap" Text="" VerticalAlignment="Center" />
+            </Border>
+            <TextBlock x:Name="txtShowFiltered" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+            <Button x:Name="btnDelete" HorizontalAlignment="Stretch" Content="Delete all" Margin="20,10,20,10" VerticalAlignment="Center" Grid.Row="4" Grid.Column="5"  Click="btnDelete_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="#F0616F"/>
+                </Button.Background>
+                <Button.Foreground>
+                    <SolidColorBrush Color="White"/>
+                </Button.Foreground>
+                <Button.FontWeight>
+                    <FontWeight>Bold</FontWeight>
+                </Button.FontWeight>
+            </Button>
+            <Border BorderBrush="White" BorderThickness="1" Margin="10" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="6">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <TextBlock x:Name="txtOutput" HorizontalAlignment="Left" Margin="20,10,20,10" TextWrapping="Wrap" Text="" VerticalAlignment="Top" />
+                </ScrollViewer>
+            </Border>
+        </Grid>
+    </Border>
+</Page>
